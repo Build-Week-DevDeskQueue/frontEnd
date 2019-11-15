@@ -4,7 +4,7 @@
     // 3. Listen to changes on the state.
     // 4. Update the state. think of updating the state as an nfl playbook. Your state is the playbook, and each player can get, listen and update it. Game on ;)
 
-    // action
+    // action / use cases
     {
         type: 'ADD_TODO'
         todo: {
@@ -63,7 +63,7 @@
     
     // store function is creating the store
     const store = createStore()
-    // unsubscribe function.
+    //  create one for admin and user unsubscribe function.
     const unsubscribe = store.subscribe(() => {
     
     })
