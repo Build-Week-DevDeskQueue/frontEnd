@@ -3,10 +3,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+// importing the redux store
+import { createStore } from 'redux';
 
 // react-redux provider and store
-import { Provider } from 'react-redux'
-import store from './store'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import './index.css';
 import App from './App';
