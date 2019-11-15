@@ -1,28 +1,34 @@
+// eslint-disable-next-line max-len
 // implementing a "provider so the redux store is available to the rest of the application."
-// install react-redux packages - (npm install react-redux) or (yarn add react-redux)
-
+// eslint-disable-next-line max-len
+// install react-redux packages - npm install react-redux or yarn add react-redux
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
 // importing the redux store
-import { createStore } from 'redux';
-
-// react-redux provider and store
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+// react-redux provider
 import { Provider } from 'react-redux';
-import store from './store';
 
+import loginReducer from '../src/redux/reducers/loginReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const rootReducer = combineReducers({ loginReducer });
+
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+
 // wrapping the application in the provider to render.
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   rootElement
-)
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
