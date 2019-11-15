@@ -8,9 +8,8 @@ export const TICKET_ADD = 'TICKET_ADD';
 export function createTicket() {
   return dispatch => {
     dispatch({ type: TICKET_NEW });
-
     axios
-      .get('https://devdesk-backend.herokuapp.com/api/auth/login')
+      .post('https://devdesk-backend.herokuapp.com/api/tickets/')
       .then(res => {
         dispatch({ type: TICKET_UPDATE, payload: res.data });
       })
@@ -19,11 +18,11 @@ export function createTicket() {
       });
   };
 }
-
+// delete ticket
 export function deleteTicket() {
   return dispatch => {
     axios
-      .post('https://devdesk-backend.herokuapp.com/api/auth/login')
+      .post('https://devdesk-backend.herokuapp.com/api/tickets/:id')
       .then(res => {
         dispatch({ type: TICKET_UPDATE, payload: res.data });
       })

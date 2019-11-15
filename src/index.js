@@ -12,7 +12,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 // react-redux provider
 import { Provider } from 'react-redux';
 
-import loginReducer from '../src/redux/reducers/loginReducer';
+import loginReducer from './redux/reducers/loginReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
