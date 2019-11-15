@@ -15,9 +15,9 @@ export default function NavBar() {
       <main>
         <div className='linkInfo'>
           <NavLink className='dashboard navBarLink' to='/'>Dashboard</NavLink>
-          <NavLink className='open navBarLink' to='/character'>Open Issues</NavLink>
-          <NavLink className='resolved navBarLink' to='/search'>Resolved Issues</NavLink>
-          <NavLink className='new navBarLink' to='/search'>New Issue</NavLink>
+          <NavLink className='open navBarLink' to='/open'>Open Issues</NavLink>
+          <NavLink className='resolved navBarLink' to='/resolved'>Resolved Issues</NavLink>
+          <NavLink className='new navBarLink' to='/new'>New Issue</NavLink>
         </div>
         <Route exact path='/' component={Dashboard}/>
         <Route exact path='/open' component={OpenIssues}/>
