@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -36,10 +36,28 @@ const useStyles = makeStyles(theme => ({
 
 const SignIn = () => {
   const classes = useStyles();
+  let loggedIn = false;
+  const [logIn, setLogin] = useState({
+    username: '',
+    password: '',
+    loggedIn
+  });
+
+  const handleChange = e => {
+    setLogin({
+      [e.target.username]: e.target.value
+    });
+  };
+
   return (
     <div>
       <Paper className={classes.root}>
-        <form className={classes.container} noValidate autoComplete="off">
+        <form
+          onSubmit={handleSubmit}
+          className={classes.container}
+          noValidate
+          autoComplete="off"
+        >
           <div className={classes.centered}>
             <Typography variant="h1" gutterBottom>
               auxilium
@@ -58,22 +76,25 @@ const SignIn = () => {
                 shrink: true
               }}
               margin="normal"
+              onChange={handleChange}
             />
           </div>
           <div className={classes.centered}>
             <TextField
               id="standard-text"
               label="Password"
-              type="text"
+              type="password"
               className={classes.textField}
               InputLabelProps={{
                 shrink: true
               }}
               margin="normal"
+              onChange={handleChange}
             />
           </div>
           <div className={classes.centered}>
             <Button
+              type="submit"
               color="secondary"
               variant="contained"
               className="classes.button"
