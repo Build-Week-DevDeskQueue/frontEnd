@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,8 +25,6 @@ const useStyles = makeStyles(theme => ({
     width: 200
   },
   button: {
-    // margin: theme.spacing(1),
-    // display: 'inline'
     marginLeft: 350,
     display: 'flex'
   },
@@ -41,6 +40,11 @@ const SignIn = () => {
     <div>
       <Paper className={classes.root}>
         <form className={classes.container} noValidate autoComplete="off">
+          <div className={classes.centered}>
+            <Typography variant="h1" gutterBottom>
+              auxilium
+            </Typography>
+          </div>
           <div className={classes.centered}>
             <LockOpenOutlinedIcon />
           </div>
