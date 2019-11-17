@@ -144,65 +144,7 @@ const FormikLoginForm = withFormik({
           });
     }
   }
+}
 })(LoginForm);
 
 export default FormikLoginForm;
-
-  // return (
-    {/*<div>*/}
-    {/*  <Paper className={classes.root}>*/}
-    {/*    <form*/}
-    {/*      onSubmit={() => {}}*/}
-    {/*      className={classes.container}*/}
-    {/*      noValidate*/}
-    {/*      autoComplete="off"*/}
-    {/*    >*/}
-    {/*      <div className={classes.centered}>*/}
-    {/*        <Typography variant="h1" gutterBottom>*/}
-    {/*          auxilium*/}
-    {/*        </Typography>*/}
-    {/*      </div>*/}
-    {/*      <div className={classes.centered}>*/}
-    {/*        <LockOpenOutlinedIcon />*/}
-    {/*      </div>*/}
-    {/*      <div className={classes.centered}>*/}
-    {/*        <TextField*/}
-    {/*          id="standard-text"*/}
-    {/*          label="Username"*/}
-    {/*          type="text"*/}
-    {/*          className={classes.textField}*/}
-    {/*          InputLabelProps={{*/}
-    {/*            shrink: true*/}
-    {/*          }}*/}
-    {/*          margin="normal"*/}
-    {/*          onChange={handleChange}*/}
-    {/*        />*/}
-    {/*      </div>*/}
-    {/*      <div className={classes.centered}>*/}
-    {/*        <TextField*/}
-    {/*          id="standard-text"*/}
-    {/*          label="Password"*/}
-    {/*          type="password"*/}
-    {/*          className={classes.textField}*/}
-    {/*          InputLabelProps={{*/}
-    {/*            shrink: true*/}
-    {/*          }}*/}
-    {/*          margin="normal"*/}
-    {/*          onChange={handleChange}*/}
-    {/*        />*/}
-    {/*      </div>*/}
-    {/*      <div className={classes.centered}>*/}
-    {/*        <Button*/}
-    {/*          type="submit"*/}
-    {/*          color="secondary"*/}
-    {/*          variant="contained"*/}
-    {/*          className="classes.button"*/}
-    {/*        >*/}
-    {/*          Submit*/}
-    {/*        </Button>*/}
-    {/*      </div>*/}
-    {/*    </form>*/}
-    {/*  </Paper>*/}
-    {/*</div>*/}
-  // );
-// };
