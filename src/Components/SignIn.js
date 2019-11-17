@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { withFormik } from "formik";
+import * as Yup from 'yup';
+import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -36,76 +39,170 @@ const useStyles = makeStyles(theme => ({
 
 const SignIn = () => {
   const classes = useStyles();
-  let loggedIn = false;
-  const [logIn, setLogin] = useState({
-    username: '',
-    password: '',
-    loggedIn
-  });
+  const [state, setState] = useState({});
 
-  const handleChange = e => {
-    setLogin({
-      [e.target.username]: e.target.value
-    });
-  };
-
+  // const handleChange = e => {
+  //   setLogin({
+  //     [e.target.username]: e.target.value
+  //   });
+  // };
+  //
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const { username, password } = logIn;
+  // };
+function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
-    <div>
-      <Paper className={classes.root}>
-        <form
-          onSubmit={handleSubmit}
-          className={classes.container}
-          noValidate
-          autoComplete="off"
-        >
-          <div className={classes.centered}>
-            <Typography variant="h1" gutterBottom>
-              auxilium
-            </Typography>
-          </div>
-          <div className={classes.centered}>
-            <LockOpenOutlinedIcon />
-          </div>
-          <div className={classes.centered}>
-            <TextField
-              id="standard-text"
-              label="Username"
-              type="text"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true
-              }}
-              margin="normal"
-              onChange={handleChange}
-            />
-          </div>
-          <div className={classes.centered}>
-            <TextField
-              id="standard-text"
-              label="Password"
-              type="password"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true
-              }}
-              margin="normal"
-              onChange={handleChange}
-            />
-          </div>
-          <div className={classes.centered}>
-            <Button
-              type="submit"
-              color="secondary"
-              variant="contained"
-              className="classes.button"
-            >
-              Submit
-            </Button>
-          </div>
-        </form>
-      </Paper>
-    </div>
+      <div>
+        <Paper className={classes.root}>
+          <form
+              onSubmit={() => {}}
+              className={classes.container}
+              noValidate
+              autoComplete="off"
+          >
+            <div className={classes.centered}>
+              <Typography variant="h1" gutterBottom>
+                auxilium
+              </Typography>
+            </div>
+            <div className={classes.centered}>
+              <LockOpenOutlinedIcon />
+            </div>
+            <div className={classes.centered}>
+              <TextField
+                  id="standard-text"
+                  label="Username"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  margin="normal"
+                  onChange={handleChange}
+              />
+            </div>
+            <div className={classes.centered}>
+              <TextField
+                  id="standard-text"
+                  label="Password"
+                  type="password"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  margin="normal"
+                  onChange={handleChange}
+              />
+            </div>
+            <div className={classes.centered}>
+              <Button
+                  type="submit"
+                  color="secondary"
+                  variant="contained"
+                  className="classes.button"
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
+        </Paper>
+      </div>
   );
-};
+}
 
-export default SignIn;
+const FormikLoginForm = withFormik({
+  mapPropsToValues({ username, password, tos }) {
+    return {
+      username: username || "",
+      password: password || "",
+      tos: tos || ""
+    };
+  },
+  validationSchema: Yup.object().shape({
+    username: Yup.string()
+        .username("Username is not valid")
+        .required("Username is required"),
+    password: Yup.string()
+        .min(8, "Password must be 8 characters or longer")
+        .required("Password is required")
+  }),
+  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+    if (values.username === "alreadytaken@atb.dev") {
+      setErrors({ username: "That username is already taken" });
+    } else {
+      axios
+          .post("https://devdesk-backend.herokuapp.com/api/auth/login", values)
+          .then(res => {
+            console.log(res);
+            resetForm();
+            setSubmitting(false);
+          })
+          .catch(err => {
+            console.log(err);
+            setSubmitting(false);
+          });
+    }
+  }
+})(LoginForm);
+
+export default FormikLoginForm;
+
+  // return (
+    {/*<div>*/}
+    {/*  <Paper className={classes.root}>*/}
+    {/*    <form*/}
+    {/*      onSubmit={() => {}}*/}
+    {/*      className={classes.container}*/}
+    {/*      noValidate*/}
+    {/*      autoComplete="off"*/}
+    {/*    >*/}
+    {/*      <div className={classes.centered}>*/}
+    {/*        <Typography variant="h1" gutterBottom>*/}
+    {/*          auxilium*/}
+    {/*        </Typography>*/}
+    {/*      </div>*/}
+    {/*      <div className={classes.centered}>*/}
+    {/*        <LockOpenOutlinedIcon />*/}
+    {/*      </div>*/}
+    {/*      <div className={classes.centered}>*/}
+    {/*        <TextField*/}
+    {/*          id="standard-text"*/}
+    {/*          label="Username"*/}
+    {/*          type="text"*/}
+    {/*          className={classes.textField}*/}
+    {/*          InputLabelProps={{*/}
+    {/*            shrink: true*/}
+    {/*          }}*/}
+    {/*          margin="normal"*/}
+    {/*          onChange={handleChange}*/}
+    {/*        />*/}
+    {/*      </div>*/}
+    {/*      <div className={classes.centered}>*/}
+    {/*        <TextField*/}
+    {/*          id="standard-text"*/}
+    {/*          label="Password"*/}
+    {/*          type="password"*/}
+    {/*          className={classes.textField}*/}
+    {/*          InputLabelProps={{*/}
+    {/*            shrink: true*/}
+    {/*          }}*/}
+    {/*          margin="normal"*/}
+    {/*          onChange={handleChange}*/}
+    {/*        />*/}
+    {/*      </div>*/}
+    {/*      <div className={classes.centered}>*/}
+    {/*        <Button*/}
+    {/*          type="submit"*/}
+    {/*          color="secondary"*/}
+    {/*          variant="contained"*/}
+    {/*          className="classes.button"*/}
+    {/*        >*/}
+    {/*          Submit*/}
+    {/*        </Button>*/}
+    {/*      </div>*/}
+    {/*    </form>*/}
+    {/*  </Paper>*/}
+    {/*</div>*/}
+  // );
+// };
