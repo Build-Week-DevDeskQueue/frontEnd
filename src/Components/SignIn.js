@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { withFormik } from 'formik';
-import * as Yup from 'yup';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -39,28 +37,23 @@ const useStyles = makeStyles(theme => ({
 
 const SignIn = () => {
   const classes = useStyles();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [user, setUser] = useState({ username: '', password: '' });
 
-  const handleUsernameChange = e => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = e => {
-    setPassword(e.target.value);
+  const handleChange = e => {
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = e => {
-    alert(username);
-    alert(password);
     e.preventDefault();
+    alert(user.username);
+    alert(user.password);
   };
 
   return (
     <div>
       <Paper className={classes.root}>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={event => handleSubmit(event)}
           className={classes.container}
           noValidate
           autoComplete="off"
@@ -75,7 +68,7 @@ const SignIn = () => {
           </div>
           <div className={classes.centered}>
             <TextField
-              id="standard-text"
+              name="username"
               label="Username"
               type="text"
               className={classes.textField}
@@ -83,13 +76,13 @@ const SignIn = () => {
                 shrink: true
               }}
               margin="normal"
-              value={username}
-              onChange={handleUsernameChange}
+              value={user.username}
+              onChange={event => handleChange(event)}
             />
           </div>
           <div className={classes.centered}>
             <TextField
-              id="standard-text"
+              name="password"
               label="Password"
               type="password"
               className={classes.textField}
@@ -97,8 +90,8 @@ const SignIn = () => {
                 shrink: true
               }}
               margin="normal"
-              value={password}
-              onChange={handlePasswordChange}
+              value={user.password}
+              onChange={event => handleChange(event)}
             />
           </div>
           <div className={classes.centered}>
