@@ -6,8 +6,6 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 
 export function loginAction() {
   return dispatch => {
-    dispatch({ type: LOGIN_START });
-
     axios
       .get('https://devdesk-backend.herokuapp.com/api/auth/login')
       .then(res => {

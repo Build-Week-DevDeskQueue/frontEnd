@@ -6,7 +6,7 @@ import {
 } from '../actions/ticketActions';
 
 const initialState = {
-  isLoading: false,
+  user: false,
   error: ''
 };
 

@@ -1,1 +1,1 @@
-// getting items
+// combining reducers

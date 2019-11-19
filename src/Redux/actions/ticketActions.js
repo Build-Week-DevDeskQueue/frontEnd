@@ -5,6 +5,7 @@ export const TICKET_UPDATE = 'TICKET_UPDATE';
 export const TICKET_ERROR = 'TICKET_ERROR';
 export const TICKET_ADD = 'TICKET_ADD';
 
+// creating ticket
 export function createTicket() {
   return dispatch => {
     dispatch({ type: TICKET_NEW });

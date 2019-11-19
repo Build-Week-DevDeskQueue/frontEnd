@@ -16,7 +16,7 @@ import loginReducer from './redux/reducers/loginReducer';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+// calling the default reducer to create a link.
 const rootReducer = combineReducers({ loginReducer });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
