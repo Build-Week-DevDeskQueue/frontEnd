@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
+import SignIn from './Components/SignIn';
 
-function App() {
+const App = () => {
   return (
     <div>
-      Dev Desk Queue
-      <div>test</div>
-      <div>test2</div>
+      <SignIn />
     </div>
   );
-}
+};
 
 export default App;
