@@ -1,13 +1,10 @@
 import axios from 'axios';
-
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_ERROR = 'LOGIN_ERROR';
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_ERROR } from './types';
 
 export function loginStart() {
   return dispatch => {
     axios
-      .get('https://devdesk-backend.herokuapp.com/api/auth/login', )
+      .get('https://devdesk-backend.herokuapp.com/api/auth/login', creds)
       .then(res => {
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       })
@@ -20,7 +17,7 @@ export function loginStart() {
 export function loginSuccess() {
   return dispatch => {
     axios
-      .post('https://devdesk-backend.herokuapp.com/api/auth/login')
+      .post('https://devdesk-backend.herokuapp.com/api/auth/login', creds)
       .then(res => {
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       })

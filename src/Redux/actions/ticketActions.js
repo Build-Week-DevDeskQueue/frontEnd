@@ -1,9 +1,5 @@
 import axios from 'axios';
-
-export const TICKET_NEW = 'TICKET_NEW';
-export const TICKET_UPDATE = 'TICKET_UPDATE';
-export const TICKET_ERROR = 'TICKET_ERROR';
-export const TICKET_ADD = 'TICKET_ADD';
+import { TICKET_NEW, TICKET_ADD, TICKET_UPDATE, TICKET_ERROR } from './types';
 
 // creating ticket
 export function createTicket() {

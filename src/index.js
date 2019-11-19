@@ -1,7 +1,3 @@
-// eslint-disable-next-line max-len
-// implementing a "provider so the redux store is available to the rest of the application."
-// eslint-disable-next-line max-len
-// install react-redux packages - npm install react-redux or yarn add react-redux
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
