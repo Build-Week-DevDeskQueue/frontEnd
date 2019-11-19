@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
@@ -83,7 +83,7 @@ export default function EditTicketForm({ listTickets, match, updateTicket }) {
               required
               id="filled-required"
               label="Assigned"
-              defaultValue="false"
+              defaultValue=""
               className={classes.textField}
               margin="normal"
               variant="filled"
@@ -92,7 +92,7 @@ export default function EditTicketForm({ listTickets, match, updateTicket }) {
               id="date"
               label="Submitted Date"
               type="date"
-              defaultValue={Date.now()}
+              defaultValue=""
               className={classes.textField}
               InputLabelProps={{
                shrink: true,

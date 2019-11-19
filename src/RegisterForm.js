@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {axiosWithAuth} from './utils/axiosWithAuth';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -62,7 +63,7 @@ const LoginForm = (props) => {
 
   return (
     
-    <div className="login-form">      
+    <div className="login-form" login={login}>      
       <h2>Login to DevDesk Queue</h2>
       
     <form onSubmit={login} className={classes.container} noValidate autoComplete="off">
@@ -81,6 +82,18 @@ const LoginForm = (props) => {
           onChange={handleChange}
           />
           <TextField
+          required
+          id="filled-required"
+          label="authType"
+          name="authType"
+          defaultValue="user"
+          className={classes.textField}
+          margin="normal"
+          variant="filled"
+          value={user.user} 
+          onChange={handleChange}
+          />
+          <TextField
           id="outlined-password-input"
           label="Password"
           className={classes.textField}
@@ -92,11 +105,13 @@ const LoginForm = (props) => {
           value={user.password} 
           onChange={handleChange}
           />
+  
+
        <Button variant="contained" 
        type="submit" 
        color="primary" 
        className={classes.button}>
-       Submit
+       Register Me
        </Button>
       </form>
     </div>

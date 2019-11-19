@@ -1,5 +1,4 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
 import TicketDetails from './TicketDetails';
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
@@ -18,34 +17,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const initialForm = {
-  title: '',
-  description: '',
-  type: '',
-  tried:'',
-  owner: '',
-  asssigned: false,
-  date: Date.now()
-};
-
-
 
 export default function AddTicketForm({ addTicket }) {
   const classes = useStyles();
-  return (
-    <Formik
-      initialValues={initialForm}
-      onSubmit={addTicket}
-      render={props => {
-
         return (
           <>
-          <form className={classes.container} noValidate autoComplete="off">
+          <form className={classes.container} noValidate autoComplete="off"  onSubmit={addTicket}>
               <TextField
                 required
                 id="filled-required"
                 label="Title"
-                defaultValue=""
                 className={classes.textField}
                 margin="normal"
                 variant="filled"
@@ -54,7 +35,6 @@ export default function AddTicketForm({ addTicket }) {
                 required
                 id="filled-required"
                 label="Description"
-                defaultValue=""
                 className={classes.textField}
                 margin="normal"
                 variant="filled"
@@ -63,7 +43,6 @@ export default function AddTicketForm({ addTicket }) {
                 required
                 id="filled-required"
                 label="Type"
-                defaultValue=""
                 className={classes.textField}
                 margin="normal"
                 variant="filled"
@@ -72,7 +51,6 @@ export default function AddTicketForm({ addTicket }) {
                 required
                 id="filled-required"
                 label="Tried"
-                defaultValue="Trying to?"
                 className={classes.textField}
                 margin="normal"
                 variant="filled"
@@ -92,7 +70,6 @@ export default function AddTicketForm({ addTicket }) {
               required
               id="filled-required"
               label="Assigned"
-              defaultValue="false"
               className={classes.textField}
               margin="normal"
               variant="filled"
@@ -101,7 +78,6 @@ export default function AddTicketForm({ addTicket }) {
               id="date"
               label="Submitted Date"
               type="date"
-              defaultValue={Date.now()}
               className={classes.textField}
               InputLabelProps={{
                shrink: true,
@@ -111,10 +87,8 @@ export default function AddTicketForm({ addTicket }) {
               Submit Ticket
               </Button>
           </form>
-  
+          <br />
+          <br />
           </>
         );
-      }}
-    />
-  );
 }
