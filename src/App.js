@@ -5,15 +5,15 @@ import UserTickets from './UserTickets';
 import Ticket from './Ticket';
 import EditTicketForm from './EditTicketForm';
 import AddTicketForm from './AddTicketForm';
-import './App2.css';
+import './App.css';
 import LoginForm from './LoginForm';
 import PrivateRoute from './routes/PrivateRoute';
 import Dashboard from './Dashboard';
 import AppBar from './AppBar';
-import AdminForm from './AdminForm';
 import bluescreen from './bluescreen.jpg';
 import delta from './delta.png';
 import { axiosWithAuth } from './utils/axiosWithAuth';
+
 
 
 const App = props => {

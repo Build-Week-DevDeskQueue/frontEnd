@@ -36,7 +36,7 @@ export default function UserTickets(props) {
       <div className="ticket-list">
         {tickets.map(ticket => (
           <>
-            <TicketDetails key={ticket.id} ticket={ticket} handleDelete={handleDelete} />
+            <TicketDetails key={ticket.id} {...props} ticket={ticket} handleDelete={handleDelete} />
           </>
         ))}
       </div>

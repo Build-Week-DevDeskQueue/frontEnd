@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { TicketCard } from './TicketCard';
 import { axiosWithAuth } from './utils/axiosWithAuth';
+import Button from '@material-ui/core/Button';
 
 export default class Ticket extends React.Component {
   constructor(props) {
@@ -28,11 +29,6 @@ export default class Ticket extends React.Component {
       .catch(error => console.log(error));
   };
 
-  saveTicket = () => {
-    const addToSavedList = this.props.addToSavedList;
-    addToSavedList(this.state.ticket);
-  };
-
   updateTicket = () => {
     this.props.history.push({
       pathname: `/update-ticket/${this.state.ticket.id}`,
@@ -46,12 +42,12 @@ export default class Ticket extends React.Component {
     }
 
     return (
-      <div className="save-wrapper">
+      <div className="card-wrapper">
         <TicketCard ticket={this.state.ticket} />
 
-        <button class="update-btn" onClick={this.updateTicket}>
+        <Button class="update-btn" onClick={this.updateTicket}>
           Update
-        </button>
+        </Button>
       </div>
     );
   }
