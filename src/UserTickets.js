@@ -13,7 +13,7 @@ export default function UserTickets(props) {
       .then(result => setTickets(result.data))
       .catch(error => console.log(error));
   }, [tickets])
-  //useEffect runs axios one time w empty dependency array
+  //useEffect runs axios dependency array
 
   const handleDelete = (event, id) => {
     event.preventDefault()

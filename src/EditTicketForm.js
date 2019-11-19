@@ -23,20 +23,20 @@ export default function EditTicketForm({ listTickets, match, updateTicket }) {
   });
   const classes = useStyles();
   return (
-    
-      <Formik
-        initialValues={ticketToUpdate}
-        onSubmit={updateTicket}
-        render={props => {
-          console.log('props', props)
-          return (
+
+    <Formik
+      initialValues={ticketToUpdate}
+      onSubmit={updateTicket}
+      render={props => {
+        console.log('props', props)
+        return (
           <>
-          <form className={classes.container} noValidate autoComplete="off">
+            <form className={classes.container} noValidate autoComplete="off">
               <TextField
                 required
                 id="filled-required"
                 label="Title"
-                defaultValue=""
+                name="title"
                 className={classes.textField}
                 margin="normal"
                 variant="filled"
@@ -69,43 +69,43 @@ export default function EditTicketForm({ listTickets, match, updateTicket }) {
                 variant="filled"
               />
               <TextField
-              id="filled-number"
-              label="Owner"
-              type="number"
-              className={classes.textField}
-              InputLabelProps={{
-                 shrink: true,
-              }}
-              margin="normal"
-              variant="filled"
+                id="filled-number"
+                label="Owner"
+                type="number"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                margin="normal"
+                variant="filled"
               />
               <TextField
-              required
-              id="filled-required"
-              label="Assigned"
-              defaultValue=""
-              className={classes.textField}
-              margin="normal"
-              variant="filled"
+                required
+                id="filled-required"
+                label="Assigned"
+                defaultValue=""
+                className={classes.textField}
+                margin="normal"
+                variant="filled"
               />
               <TextField
-              id="date"
-              label="Submitted Date"
-              type="date"
-              defaultValue=""
-              className={classes.textField}
-              InputLabelProps={{
-               shrink: true,
-              }}
+                id="date"
+                label="Submitted Date"
+                type="date"
+                defaultValue=""
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
-             <Button variant="contained" type="submit" color="primary" className={classes.button}>
-             Update Ticket
+              <Button variant="contained" type="submit" color="primary" className={classes.button}>
+                Update Ticket
              </Button>
-          </form>
+            </form>
           </>
-          
-          );
-          }}
-      />
+
+        );
+      }}
+    />
   );
 }

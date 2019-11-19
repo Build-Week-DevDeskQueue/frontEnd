@@ -16,16 +16,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const TicketCard = (props) => {
+export const TicketCard = props => {
   const classes = useStyles();
-  const { title, description, type, tried, owner, assigned, date } = props.ticket;
+  //const { title, description, type, tried, owner, assigned, date } = props.ticket;
   return (
     <div className="ticket-card">
-      <h4>title {props.title}</h4>
-      <p>description {props.description}</p>
-      <h4>type {props.type}</h4>
-      <h4>owner {props.owner}</h4>
-      <p>date {props.date}</p>
+      <h4>Title: {props.title}</h4>
+      <span> Description: {props.description} </span>
+      <h4> Type: {props.type} </h4>
+      <h4> Owner: {props.owner} </h4>
+      <span> date: {props.date} </span>
     </div>
   );
 };
