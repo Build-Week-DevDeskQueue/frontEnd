@@ -6,3 +6,4 @@ import rootReducer from './reducers';
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 export default store;
+// such clean store! :)

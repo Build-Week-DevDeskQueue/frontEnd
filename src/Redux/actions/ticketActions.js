@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { TICKET_NEW, TICKET_ADD, TICKET_UPDATE, TICKET_ERROR } from './types';
-
+import { TICKET_NEW, TICKET_UPDATE, TICKET_ERROR } from './types';
+// TICKET_ADD,
 // creating ticket
 export function createTicket() {
   return dispatch => {
