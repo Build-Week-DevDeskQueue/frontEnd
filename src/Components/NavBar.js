@@ -1,29 +1,108 @@
+// import React, { useState } from 'react';
+//
+// import { NavLink } from 'react-router-dom';
+// // import { Route, NavLink } from 'react-router-dom';
+//
+// export default function NavBar() {
+//   const [nav] = useState();
+//   return (
+//     <main>
+//       <div className="linkInfo">
+//         <NavLink className="dashboard navBarLink" to="/">
+//           Dashboard
+//         </NavLink>
+//         <NavLink className="open navBarLink" to="/open">
+//           Open Issues
+//         </NavLink>
+//         <NavLink className="resolved navBarLink" to="/resolved">
+//           Resolved Issues
+//         </NavLink>
+//         <NavLink className="new navBarLink" to="/new">
+//           New Issue
+//         </NavLink>
+//       </div>
+//       {/*<Route exact path="/" component={Dashboard} />*/}
+//       {/*<Route exact path="/open" component={OpenIssues} />*/}
+//       {/*<Route exact path="/resolved" component={ResolvedIssues} />*/}
+//       {/*<Route exact path="/new" component={NewIssue} />*/}
+//     </main>
+//   );
+// }
+
 import React, { useState } from 'react';
+// import axios from 'axios';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton
+} from '@material-ui/core';
+// import MenuIcon from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
+import '../dev_desk_logo.png';
+// import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 
-import { BrowserRouter as Route, NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+// import { Route, NavLink } from 'react-router-dom';
 
-export default function NavBar() {
+const useStyles = makeStyles(theme => ({
+  navRoot: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  navTitle: {
+    flexGrow: 1
+  },
+  navColors: {
+    backgroundColor: '#E4137B'
+  }
+}));
+
+const NavBar = () => {
+  const classes = useStyles();
   const [nav] = useState();
   return (
     <main>
-      <div className="linkInfo">
-        <NavLink className="dashboard navBarLink" to="/">
-          Dashboard
-        </NavLink>
-        <NavLink className="open navBarLink" to="/open">
-          Open Issues
-        </NavLink>
-        <NavLink className="resolved navBarLink" to="/resolved">
-          Resolved Issues
-        </NavLink>
-        <NavLink className="new navBarLink" to="/new">
-          New Issue
-        </NavLink>
+      <div className="navRoot">
+        <AppBar position="static" className={classes.navColors}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className="menuButton"
+              color="inherit"
+              aria-label="menu"
+            >
+              {/*<MenuIcon/>*/}
+            </IconButton>
+            <Typography variant="h6" className={classes.navTitle} to="/">
+              <Button color="inherit">Dashboard</Button>
+            </Typography>
+            <Typography variant="h6" className={classes.navTitle} to="/open">
+              <Button color="inherit">Open Issues</Button>
+            </Typography>
+            <Typography
+              variant="h6"
+              className={classes.navTitle}
+              to="/resolved"
+            >
+              <Button color="inherit">Resolved Issue</Button>
+            </Typography>
+            <Typography variant="h6" className={classes.navTitle} to="/new">
+              <Button color="inherit">New Issue</Button>
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </div>
+
       {/*<Route exact path="/" component={Dashboard} />*/}
       {/*<Route exact path="/open" component={OpenIssues} />*/}
       {/*<Route exact path="/resolved" component={ResolvedIssues} />*/}
       {/*<Route exact path="/new" component={NewIssue} />*/}
     </main>
   );
-}
+};
+
+export default NavBar;
