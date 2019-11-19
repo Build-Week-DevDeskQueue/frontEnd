@@ -13,7 +13,9 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 import loginReducer from './redux/reducers/loginReducer';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 // calling the default reducer to create a link.
@@ -25,11 +27,14 @@ const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   rootElement
 );
 
+  document.getElementById('root');
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

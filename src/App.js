@@ -1,15 +1,16 @@
 import React from 'react';
 
 import './App.css';
+import SignIn from './components/SignIn';
+import AppRouter from './components/AppRouter';
 
-function App() {
+const App = () => {
   return (
     <div>
-      Dev Desk Queue
-      <div>test</div>
-      <div>test2</div>
+      <SignIn />
+      <AppRouter />
     </div>
   );
-}
+};
 
 export default App;
