@@ -13,11 +13,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
- // <Provider store={store}>
+  // <Provider store={store}>
   <Router>
     <App />
   </Router>,
- // </Provider>,
+  // </Provider>,
   document.getElementById('root')
 );
 

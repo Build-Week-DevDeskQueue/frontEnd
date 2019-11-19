@@ -16,84 +16,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TicketCard = props => {
+export const TicketCard = (props) => {
   const classes = useStyles();
   const { title, description, type, tried, owner, assigned, date } = props.ticket;
   return (
-    <>
-    <form className={classes.container} noValidate autoComplete="off">
-        <TextField
-          required
-          id="filled-required"
-          label="Title"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="filled"
-        />
-        <TextField
-          required
-          id="filled-required"
-          label="Description"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="filled"
-        />
-        <TextField
-          required
-          id="filled-required"
-          label="Type"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="filled"
-        />
-        <TextField
-          required
-          id="filled-required"
-          label="Tried"
-          defaultValue="Trying to?"
-          className={classes.textField}
-          margin="normal"
-          variant="filled"
-        />
-        <TextField
-        id="filled-number"
-        label="Owner"
-        type="number"
-        className={classes.textField}
-        InputLabelProps={{
-           shrink: true,
-        }}
-        margin="normal"
-        variant="filled"
-        />
-        <TextField
-        required
-        id="filled-required"
-        label="Assigned"
-        defaultValue="false"
-        className={classes.textField}
-        margin="normal"
-        variant="filled"
-        />
-        <TextField
-        id="date"
-        label="Submitted Date"
-        type="date"
-        defaultValue={Date.now()}
-        className={classes.textField}
-        InputLabelProps={{
-         shrink: true,
-        }}
-        />
-    </form>
-
-    <Button variant="contained" color="primary" className={classes.button}>
-    Submit Ticket
-    </Button>
-    </>
+    <div className="ticket-card">
+      <h4>title {props.title}</h4>
+      <p>description {props.description}</p>
+      <h4>type {props.type}</h4>
+      <h4>owner {props.owner}</h4>
+      <p>date {props.date}</p>
+    </div>
   );
 };
 

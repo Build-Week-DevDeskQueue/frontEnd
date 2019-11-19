@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -75,15 +75,15 @@ export default function TemporaryDrawer() {
 
   return (
     <div className="dashboard">
-        <Button variant="contained" 
-         color="primary" className={classes.button} 
-         onClick={toggleDrawer('left', true)}>
-         Open Dashboard</Button>
+      <Button variant="contained"
+        color="primary" className={classes.button}
+        onClick={toggleDrawer('left', true)}>
+        Open Dashboard</Button>
 
-        <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
-        </Drawer>
-      
+      </Drawer>
+
     </div>
   );
 }

@@ -13,6 +13,7 @@ import AppBar from './AppBar';
 import AdminForm from './AdminForm';
 import bluescreen from './bluescreen.jpg';
 import delta from './delta.png';
+import { axiosWithAuth } from './utils/axiosWithAuth';
 
 
 const App = props => {
@@ -20,15 +21,14 @@ const App = props => {
   const [listTickets, setTicketList] = useState([]);
 
 
-
- //render list 
+  //render list 
   const setTicket = tickets => {
     setTicketList(tickets);
   };
 
-//update 
+  //update 
   const updateTicket = ticket => {
-    axios
+    axiosWithAuth()
       .put(`https://devdesk-backend.herokuapp.com/api/tickets/${ticket.id}`, ticket)
       .then(result => {
         fetchTickets();
@@ -39,12 +39,13 @@ const App = props => {
       });
   };
 
-//display GET request from api
+  //display GET request from api
   const fetchTickets = () => {
-    axios
+    axiosWithAuth()
       .get("https://devdesk-backend.herokuapp.com/api/tickets/")
       .then(result => {
-        setTicketList(result.data);
+        setTicket(result.data);
+        console.log(result.data);
       })
       .catch(error => {
         console.log(error);
@@ -54,10 +55,10 @@ const App = props => {
   useEffect(() => {
     fetchTickets();
   }, []);
-//empty dependency array for fetch to stop repeating fetch
-//delete and id of ticket using template literal
+
+  //delete and id of ticket using template literal
   const deleteTicket = id => {
-    axios
+    axiosWithAuth()
       .delete(`https://devdesk-backend.herokuapp.com/api/tickets/${id}`)
       .then(result => {
         fetchTickets();
@@ -70,11 +71,12 @@ const App = props => {
 
   //add 
   const addTicket = values => {
-    axios
+    axiosWithAuth()
       .post("https://devdesk-backend.herokuapp.com/api/tickets/", values)
       .then(result => {
         fetchTickets();
         props.history.push("/");
+        console.log(result.data);
       })
       .catch(error => {
         console.log(error);
@@ -83,25 +85,24 @@ const App = props => {
 
   return (
     <>
-    <AppBar style={{backgroundColor: '#212121'}} />
-    <header>
-      <h1>DevDesk Queue</h1>
-      <h4>Get Started solving your coding questions below</h4>
-    </header>
-    <div className="logo"><img src={delta} height="160px" width="160px" /></div>
-    <LoginForm />
-    <br />
-    <h2>DASHBOARD</h2>
-    <Dashboard />
-    <br />
-    <img src={bluescreen} />
-    <br />
-    <AdminForm />
-    <br />
-    <h1>Here is the Current Open Ticket List</h1>
-    <br />
-    <h4>Add, Update, Save, or Delete from Your Database.</h4>
-    <Route
+      <AppBar style={{ backgroundColor: '#212121' }} />
+      <header>
+        <h1>DevDesk Queue</h1>
+        <h4>Get Started solving your coding questions below</h4>
+      </header>
+      <div className="logo"><img src={delta} height="160px" width="160px" /></div>
+      <LoginForm />
+      <br />
+      <h2>DASHBOARD</h2>
+      <Dashboard />
+      <br />
+      <img src={bluescreen} />
+      <br />
+      <br />
+      <h1>Here is the Current Open Ticket List</h1>
+      <br />
+      <h4>Add, Update, Save, or Delete from Your Database.</h4>
+      <Route
         exact path="/"
         render={props => {
           return (
@@ -125,7 +126,7 @@ const App = props => {
         }}
       />
       <div className="add-ticket">
-      <Link to="/update-ticket/:id">Update Ticket</Link>
+        <Link to="/update-ticket/:id">Update Ticket</Link>
       </div>
       <Route
         path="/update-ticket/:id"
@@ -140,14 +141,14 @@ const App = props => {
         }}
       />
       <div className="add-ticket">
-      <Link to="/add-ticket">Add Ticket</Link>
+        <Link to="/add-ticket">Add Ticket</Link>
       </div>
       <Route
         path="/add-ticket"
         render={props => {
-          return <AddTicketForm 
-          {...props} 
-          addTicket={addTicket} />
+          return <AddTicketForm
+            {...props}
+            addTicket={addTicket} />
         }}
       />
     </>
