@@ -4,13 +4,11 @@ import {
   Paper,
   Typography,
   TextField,
-  Button,
-  IconButton
+  Button
 } from '@material-ui/core';
-// import MenuIcon from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
-import NavBar from "./NavBar";
+import NavBar from './NavBar';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -65,26 +63,7 @@ const SignIn = () => {
 
   return (
     <div>
-      {/*<div className="navRoot">*/}
-      {/*  <AppBar position="static">*/}
-      {/*    <Toolbar>*/}
-      {/*      <IconButton*/}
-      {/*        edge="start"*/}
-      {/*        className="menuButton"*/}
-      {/*        color="inherit"*/}
-      {/*        aria-label="menu"*/}
-      {/*      >*/}
-      {/*        /!*<MenuIcon/>*!/*/}
-      {/*      </IconButton>*/}
-      {/*      <Typography variant="h6" className={classes.navTitle}>*/}
-      {/*        News*/}
-      {/*      </Typography>*/}
-      {/*      <Button color="inherit">Login</Button>*/}
-      {/*    </Toolbar>*/}
-      {/*  </AppBar>*/}
-      {/*</div>*/}
-      <NavBar/>
-
+      <NavBar />
 
       <Paper className={classes.root}>
         <form
