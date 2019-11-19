@@ -9,6 +9,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import NavBar from './NavBar';
+import BottomNavBar from "./BottomNavBar";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -120,6 +121,8 @@ const SignIn = () => {
           </div>
         </form>
       </Paper>
+
+      <BottomNavBar/>
     </div>
   );
 };

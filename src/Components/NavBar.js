@@ -11,11 +11,14 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
+  buttonColor: {
+    color: '#E4137B'
+  },
   navTitle: {
     flexGrow: 1
   },
   navColors: {
-    backgroundColor: '#E4137B'
+    backgroundColor: 'white'
   },
   avatar: {
     margin: 10,
@@ -41,20 +44,20 @@ const NavBar = () => {
               />
             </Icon>
             <Typography variant="h6" className={classes.navTitle} to="/">
-              <Button color="inherit">Dashboard</Button>
+              <Button color="inherit" className={classes.buttonColor}>Dashboard</Button>
             </Typography>
             <Typography variant="h6" className={classes.navTitle} to="/open">
-              <Button color="inherit">Open Issues</Button>
+              <Button color="inherit" className={classes.buttonColor}>Open Issues</Button>
             </Typography>
             <Typography
               variant="h6"
               className={classes.navTitle}
               to="/resolved"
             >
-              <Button color="inherit">Resolved Issue</Button>
+              <Button color="inherit" className={classes.buttonColor}>Resolved Issue</Button>
             </Typography>
             <Typography variant="h6" className={classes.navTitle} to="/new">
-              <Button color="inherit">New Issue</Button>
+              <Button color="inherit" className={classes.buttonColor}>New Issue</Button>
             </Typography>
           </Toolbar>
         </AppBar>
