@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {
-  Paper,
-  Typography,
-  TextField,
-  Button
-} from '@material-ui/core';
+import { Paper, Typography, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import NavBar from './NavBar';
-import BottomNavBar from "./BottomNavBar";
+import BottomNavBar from './BottomNavBar';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -122,7 +117,7 @@ const SignIn = () => {
         </form>
       </Paper>
 
-      <BottomNavBar/>
+      <BottomNavBar />
     </div>
   );
 };
