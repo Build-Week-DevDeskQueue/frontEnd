@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './Navbar.css';
+import './navbar.css';
 
 import Dashboard from './Dashboard';
 import OpenIssues from './Open';
