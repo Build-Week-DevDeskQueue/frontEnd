@@ -45,9 +45,8 @@ const NewIssueForm = () => {
       />
       <label htmlFor='type'>Issue Type</label>
       <field
-        id="type"
+        as="select"
         name="type"
-        type="select"
         onChange={formik.handleChange}
         value={formik.values.type}
       >
