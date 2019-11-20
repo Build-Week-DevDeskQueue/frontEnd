@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Icon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import '../dev_desk_logo.png';
-import Avatar from '@material-ui/core/Avatar';
+import logo from '../dev_desk_logo.png';
+
 
 const useStyles = makeStyles(theme => ({
   navRoot: {
@@ -35,7 +35,7 @@ const NavBar = () => {
       <div className="navRoot">
         <AppBar position="static" className={classes.navColors}>
           <Toolbar>
-            <img src="../dev_desk_logo.png" alt="logo" />
+            <img src={logo} alt="navBarLogo" height="60" />
             <Typography variant="h6" className={classes.navTitle} to="/">
               <Button color="inherit" className={classes.buttonColor}>
                 Dashboard
