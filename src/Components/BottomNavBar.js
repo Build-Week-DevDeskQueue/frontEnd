@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -9,7 +9,10 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 
 const useStyles = makeStyles({
   bottomNavBarRoot: {
-    width: 500
+    width: 500,
+    marginTop: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto'
   }
 });
 

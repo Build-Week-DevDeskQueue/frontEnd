@@ -35,29 +35,30 @@ const NavBar = () => {
       <div className="navRoot">
         <AppBar position="static" className={classes.navColors}>
           <Toolbar>
-            <Icon>
-              <img
-                src="../dev_desk_logo.png"
-                alt="logo"
-                height={60}
-                width={160}
-              />
-            </Icon>
+            <img src="../dev_desk_logo.png" alt="logo" />
             <Typography variant="h6" className={classes.navTitle} to="/">
-              <Button color="inherit" className={classes.buttonColor}>Dashboard</Button>
+              <Button color="inherit" className={classes.buttonColor}>
+                Dashboard
+              </Button>
             </Typography>
             <Typography variant="h6" className={classes.navTitle} to="/open">
-              <Button color="inherit" className={classes.buttonColor}>Open Issues</Button>
+              <Button color="inherit" className={classes.buttonColor}>
+                Open Issues
+              </Button>
             </Typography>
             <Typography
               variant="h6"
               className={classes.navTitle}
               to="/resolved"
             >
-              <Button color="inherit" className={classes.buttonColor}>Resolved Issue</Button>
+              <Button color="inherit" className={classes.buttonColor}>
+                Resolved Issue
+              </Button>
             </Typography>
             <Typography variant="h6" className={classes.navTitle} to="/new">
-              <Button color="inherit" className={classes.buttonColor}>New Issue</Button>
+              <Button color="inherit" className={classes.buttonColor}>
+                New Issue
+              </Button>
             </Typography>
           </Toolbar>
         </AppBar>
