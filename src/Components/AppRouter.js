@@ -6,7 +6,7 @@ import Dashboard from './dashboard';
 import OpenIssues from './open';
 import ResolvedIssues from './resolved';
 
-const AppRouter = (
+const AppRouter = () => (
   <Switch>
     <Route exact path="/" component={Dashboard} />
     <Route exact path="/open" component={OpenIssues} />
