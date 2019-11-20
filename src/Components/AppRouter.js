@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './Navbar.css';
+import './navbar.css';
 
 import Dashboard from './Dashboard';
 import OpenIssues from './Open';
 import ResolvedIssues from './Resolved';
 
-const AppRouter = (
+const AppRouter = () => (
   <Switch>
     <Route exact path="/" component={Dashboard} />
     <Route exact path="/open" component={OpenIssues} />
