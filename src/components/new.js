@@ -1,7 +1,35 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles({
+  root: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    border: 0,
+    borderRadius: 3,
+    color: "white",
+    padding: "30px",
+    width: "50%",
+    minWidth: "500px"
+  },
+  halfWidth: { border: "1px solid black", width: "50%" },
+  title: {
+    border: "2px solid white",
+    borderRadius: 5,
+    padding: 7
+  },
+  paper: {
+    backgroundColor: "white",
+    border: "2px solid #000",
+    boxShadow: 5,
+    padding: 5
+  }
+});
 
 const NewIssueForm = () => {
+  const classes = useStyles();
   const formik = useFormik({
     initialValues: {
       owner: '',
@@ -11,7 +39,6 @@ const NewIssueForm = () => {
       description: '',
       tried: '',
       assigned: '',
-      resolved: '',
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
@@ -21,8 +48,8 @@ const NewIssueForm = () => {
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor='owner'>Name</label>
       <input
-        id="name"
-        name="name"
+        id="owner"
+        name="owner"
         type="text"
         onChange={formik.handleChange}
         value={formik.values.owner}
@@ -44,29 +71,29 @@ const NewIssueForm = () => {
         value={formik.values.title}
       />
       <label htmlFor='type'>Issue Type</label>
-      <field
+      <select
         as="select"
         name="type"
         onChange={formik.handleChange}
         value={formik.values.type}
       >
-        <option value=''>Algorithms</option>
-        <option value=''>Blockchain</option>
-        <option value=''>CSS</option>
-        <option value=''>Hash Tables</option>
-        <option value=''>HTML</option>
-        <option value=''>Java</option>
-        <option value=''>JavaScript</option>
-        <option value=''>React</option>
-        <option value=''>Redux</option>
-        <option value=''>Python</option>
+        <option value='algo'>Algorithms</option>
+        <option value='block'>Blockchain</option>
+        <option value='css'>CSS</option>
+        <option value='hash'>Hash Tables</option>
+        <option value='html'>HTML</option>
+        <option value='java'>Java</option>
+        <option value='js'>JavaScript</option>
+        <option value='react'>React</option>
+        <option value='redux'>Redux</option>
+        <option value='python'>Python</option>
         <option value=''>SQL</option>
-      </field>
+      </select>
       <label htmlFor='description'>Description</label>
       <input
         id="description"
         name="description"
-        type="text"
+        type="textarea"
         onChange={formik.handleChange}
         value={formik.values.description}
       />
@@ -74,34 +101,25 @@ const NewIssueForm = () => {
       <input
         id="tried"
         name="tried"
-        type="text"
+        type="textarea"
         onChange={formik.handleChange}
         value={formik.values.tried}
       />
       <label htmlFor='assigned'>Helper</label>
-      <field
-        id="assigned"
+      <select
+        as="select"
         name="assigned"
-        type="select"
         onChange={formik.handleChange}
         value={formik.values.assigned}
       >
-        <option value='BT'>Andrew Speer</option>
-        <option value='BT'>Bonnie Turnbeaugh</option>
-        <option value='BT'>Carl Redding</option>
-        <option value='BT'>Derrick Mei</option>
-        <option value='BT'>Joseph Paniagua</option>
-        <option value='BT'>Julian Cole</option>
-        <option value='BT'>Michael Luck</option>
-      </field>
-      <label htmlFor='resolved'>Resolved</label>
-      <input
-        id="resolved"
-        name="resolved"
-        type="checkbox"
-        onChange={formik.handleChange}
-        value={formik.values.resolved}
-      />
+        <option value='as'>Andrew Speer</option>
+        <option value='bt'>Bonnie Turnbeaugh</option>
+        <option value='cr'>Carl Redding</option>
+        <option value='dm'>Derrick Mei</option>
+        <option value='jp'>Joseph Paniagua</option>
+        <option value='jc'>Julian Cole</option>
+        <option value='ml'>Michael Luck</option>
+      </select>
       <button type="submit">Submit</button>
     </form>
   );
