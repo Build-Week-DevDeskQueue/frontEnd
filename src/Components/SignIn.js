@@ -86,7 +86,7 @@ const SignIn = () => {
                 shrink: true
               }}
               margin="normal"
-              value={user.username}
+              value={user.username || ''}
               onChange={event => handleChange(event)}
             />
           </div>
@@ -100,7 +100,7 @@ const SignIn = () => {
                 shrink: true
               }}
               margin="normal"
-              value={user.password}
+              value={user.password || ''}
               onChange={event => handleChange(event)}
             />
           </div>
