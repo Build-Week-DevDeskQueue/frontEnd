@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+import BottomNavBar from "./bottomnavbar";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -106,6 +107,8 @@ const SignIn = () => {
           </div>
         </form>
       </Paper>
+
+      <BottomNavBar/>
     </div>
   );
 };
