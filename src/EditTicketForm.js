@@ -17,6 +17,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const handleSubmit = (e) => {
+  e.preventDefault()
+
+
+}
+
 export default function EditTicketForm({ listTickets, match, updateTicket }) {
   const ticketToUpdate = listTickets.find(item => {
     return item.id === Number(match.params.id);

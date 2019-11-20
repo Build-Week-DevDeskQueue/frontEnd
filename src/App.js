@@ -7,7 +7,7 @@ import EditTicketForm from './EditTicketForm';
 import AddTicketForm from './AddTicketForm';
 import './App.css';
 import LoginForm from './LoginForm';
-import PrivateRoute from './routes/PrivateRoute';
+import { PrivateRoute } from './routes/PrivateRoute';
 import Dashboard from './Dashboard';
 import AppBar from './AppBar';
 import bluescreen from './bluescreen.jpg';
@@ -45,7 +45,7 @@ const App = props => {
       .get("https://devdesk-backend.herokuapp.com/api/tickets/")
       .then(result => {
         setTicket(result.data);
-        console.log(result.data);
+        console.log('fetchTickets', result.data);
       })
       .catch(error => {
         console.log(error);
@@ -70,16 +70,19 @@ const App = props => {
   };
 
   //add 
-  const addTicket = values => {
+  const addTicket = (e, values) => {
+    e.preventDefault()
+
+    console.log('values', values)
     axiosWithAuth()
       .post("https://devdesk-backend.herokuapp.com/api/tickets/", values)
       .then(result => {
-        fetchTickets();
-        props.history.push("/");
-        console.log(result.data);
+        //fetchTickets();
+        //props.history.push("/");
+        console.log('addTicket', result.data);
       })
       .catch(error => {
-        console.log(error);
+        console.log('error', error.response);
       });
   };
 

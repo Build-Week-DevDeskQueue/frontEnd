@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 
-
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
@@ -21,16 +20,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function AddTicketForm({ addTicket }) {
   const [data, setData] = useState({
-    title: '',
     description: '',
     type: '',
-    tried: '',
-    owner: '',
-    asssigned: false,
-    date: ''
+    owner: ''
   })
   const classes = useStyles();
-
   const handleChange = event => {
     setData(
       {
@@ -42,7 +36,9 @@ export default function AddTicketForm({ addTicket }) {
 
   return (
     <>
-      <form className={classes.container} noValidate autoComplete="off" onSubmit={addTicket}>
+      <form className={classes.container}
+        noValidate autoComplete="off"
+        onSubmit={(e) => { addTicket(e, data) }}>
         <TextField
           required
           id="filled-required"
@@ -77,17 +73,6 @@ export default function AddTicketForm({ addTicket }) {
           onChange={handleChange}
         />
         <TextField
-          required
-          id="filled-required"
-          label="Tried"
-          name="tried"
-          value={data.tried}
-          className={classes.textField}
-          margin="normal"
-          variant="filled"
-          onChange={handleChange}
-        />
-        <TextField
           id="filled-number"
           label="Owner"
           type="number"
@@ -97,17 +82,6 @@ export default function AddTicketForm({ addTicket }) {
           InputLabelProps={{
             shrink: true,
           }}
-          margin="normal"
-          variant="filled"
-          onChange={handleChange}
-        />
-        <TextField
-          required
-          id="filled-required"
-          label="Assigned"
-          className={classes.textField}
-          name="ressolved"
-          value={data.ressolved}
           margin="normal"
           variant="filled"
           onChange={handleChange}
@@ -124,7 +98,10 @@ export default function AddTicketForm({ addTicket }) {
           }}
           onChange={handleChange}
         />
-        <Button variant="contained" type="submit" color="primary" className={classes.button}>
+        <Button variant="contained"
+          type="submit"
+          color="primary"
+          className={classes.button}>
           Submit Ticket
         </Button>
       </form>
@@ -133,6 +110,7 @@ export default function AddTicketForm({ addTicket }) {
     </>
   );
 }
+
 
 {/*const mapStateToProps = state =>{
   return {
