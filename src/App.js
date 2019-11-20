@@ -1,13 +1,13 @@
 import React from 'react';
 
 import './App.css';
-import SignIn from './components/SignIn';
+import LoginForm from './components/LoginForm';
 import AppRouter from './components/AppRouter';
 
 const App = () => {
   return (
     <div>
-      <SignIn />
+      <LoginForm />
       <AppRouter />
     </div>
   );

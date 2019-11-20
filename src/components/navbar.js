@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 // import './Navbar.css';
 
 export default function NavBar() {
+  // eslint-disable-next-line no-unused-vars
   const [nav] = useState();
   return (
     <main>
