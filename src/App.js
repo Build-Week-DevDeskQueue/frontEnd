@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { NavLink, Route, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -155,6 +156,20 @@ const App = props => {
         }}
       />
     </>
+=======
+import React from 'react';
+
+import './App.css';
+import SignIn from './components/SignIn';
+import AppRouter from './components/AppRouter';
+
+const App = () => {
+  return (
+    <div>
+      <SignIn />
+      <AppRouter />
+    </div>
+>>>>>>> fa502965bf33787d5084506704107a9fcc2ca514
   );
 };
 
