@@ -1,29 +1,41 @@
 import axios from 'axios';
-import { LOGIN_SUCCESS, LOGIN_ERROR } from './types';
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR } from './index';
 // LOADING
 
-export function loginStart() {
-  return dispatch => {
+export const login = (creds, props) => dispatch => {
+  dispatch({ type: LOADING });
+  return setTimeout(() => {
     axios
-      .get('https://devdesk-backend.herokuapp.com/api/auth/login')
+      .post('https://devdesk-backend.herokuapp.com/api/auth/login', creds)
       .then(res => {
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
+        localStorage.setItem('token', res.data.token);
+        // eslint-disable-next-line no-console
+        console.log('login data', res);
+        dispatch({
+          type: LOGIN_SUCCESS
+        });
+        props.history.push('/');
       })
-      .catch(err => {
-        dispatch({ type: LOGIN_ERROR, payload: err });
-      });
-  };
-}
+      // eslint-disable-next-line no-console
+      .catch(err => console.log(err.response));
+  }, 2000);
+};
 
-export function loginSuccess() {
-  return dispatch => {
-    axios
-      .post('https://devdesk-backend.herokuapp.com/api/auth/login')
-      .then(res => {
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-      })
-      .catch(err => {
-        dispatch({ type: LOGIN_ERROR, payload: err });
-      });
-  };
-}
+export const loginSuccess = (creds, props) => dispatch => {
+  dispatch({ type: LOADING });
+  return setTimeout(() => {
+    return (
+      axios
+        .post('https://devdesk-backend.herokuapp.com/api/auth/login', creds)
+        .then(res => {
+          localStorage.setItem('token', res.data.token);
+          dispatch({
+            type: LOGIN_SUCCESS
+          });
+          props.history.push('/');
+        })
+        // eslint-disable-next-line no-console
+        .catch(err => console.log(err.response))
+    );
+  }, 2000);
+};

@@ -1,8 +1,9 @@
-import { TICKET_NEW,
+import {
+  TICKET_NEW,
   TICKET_UPDATE,
   TICKET_ERROR,
-  TICKET_ADD
-} from '../actions/types';
+  TICKET_DELETE
+} from '../actions';
 
 const initialState = {
   user: false,
@@ -26,7 +27,7 @@ export default function ticketReducer(state = initialState, action) {
         isLoading: false,
         error: action.payload
       };
-    case TICKET_ADD:
+    case TICKET_DELETE:
       return {
         isLoading: false,
         error: action.payload

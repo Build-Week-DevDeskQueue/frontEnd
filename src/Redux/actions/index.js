@@ -7,4 +7,4 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const TICKET_NEW = 'TICKET_NEW';
 export const TICKET_UPDATE = 'TICKET_UPDATE';
 export const TICKET_ERROR = 'TICKET_ERROR';
-export const TICKET_ADD = 'TICKET_ADD';
+export const TICKET_DELETE = 'TICKET_DELETE';

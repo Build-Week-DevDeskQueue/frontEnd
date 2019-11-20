@@ -1,4 +1,4 @@
-import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/types';
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions';
 
 const initialState = {
   isLoading: false,
