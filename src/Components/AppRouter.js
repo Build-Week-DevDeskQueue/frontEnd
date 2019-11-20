@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './Navbar.css';
+// import './Navbar.css';
 
-import Dashboard from './Dashboard';
-import OpenIssues from './Open';
-import ResolvedIssues from './Resolved';
+import Dashboard from './dashboard';
+import OpenIssues from './open';
+import ResolvedIssues from './resolved';
 
 const AppRouter = (
   <Switch>

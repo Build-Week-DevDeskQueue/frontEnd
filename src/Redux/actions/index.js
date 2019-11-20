@@ -1,12 +1,10 @@
-// redux actions
+// LOGIN ACTION constant types
+export const LOADING = 'LOADING';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 
-// We need a way to describe state changes in our application. We'll use actions for this.
-// Actions are payloads of information that send an instruction on what type of transformation to make to your application’s state
-// as well as any other relevant information. That's basically a fancy way of saying "an action is an object which describes what sort
-// of transformation you want to make to your state.". An object makes up a perfect data structure for an action since it can perfectly
-// describe the type of event which occurred in your application.
-
-// One thing to note is that actions must have a type property to specify, well, the “type” of action which is occurring. Other than ‘type’,
-// the structure of the action is up to you.
-
-// action type
+// TICKET ACTIONS constant types
+export const TICKET_NEW = 'TICKET_NEW';
+export const TICKET_UPDATE = 'TICKET_UPDATE';
+export const TICKET_ERROR = 'TICKET_ERROR';
+export const TICKET_ADD = 'TICKET_ADD';

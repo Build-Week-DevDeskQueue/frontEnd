@@ -1,8 +1,4 @@
-import {
-  LOGIN_START,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR
-} from '../actions/loginActions';
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/types';
 
 const initialState = {
   isLoading: false,
@@ -11,7 +7,7 @@ const initialState = {
 
 export default function loginReducer(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_START:
+    case LOADING:
       return {
         isLoading: true,
         error: ''

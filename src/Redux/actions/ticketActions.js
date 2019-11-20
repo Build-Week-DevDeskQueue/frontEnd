@@ -1,14 +1,12 @@
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { TICKET_NEW, TICKET_UPDATE, TICKET_ERROR } from '.';
+// TICKET_ADD,
 
-export const TICKET_NEW = 'TICKET_NEW';
-export const TICKET_UPDATE = 'TICKET_UPDATE';
-export const TICKET_ERROR = 'TICKET_ERROR';
-export const TICKET_ADD = 'TICKET_ADD';
-
+// creating ticket
 export function createTicket() {
   return dispatch => {
     dispatch({ type: TICKET_NEW });
-    axios
+    axiosWithAuth()
       .post('https://devdesk-backend.herokuapp.com/api/tickets/')
       .then(res => {
         dispatch({ type: TICKET_UPDATE, payload: res.data });
@@ -21,7 +19,7 @@ export function createTicket() {
 // delete ticket
 export function deleteTicket() {
   return dispatch => {
-    axios
+    axiosWithAuth()
       .post('https://devdesk-backend.herokuapp.com/api/tickets/:id')
       .then(res => {
         dispatch({ type: TICKET_UPDATE, payload: res.data });

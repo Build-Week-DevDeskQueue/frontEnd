@@ -1,12 +1,11 @@
-import {
-  TICKET_NEW,
+import { TICKET_NEW,
   TICKET_UPDATE,
   TICKET_ERROR,
   TICKET_ADD
-} from '../actions/ticketActions';
+} from '../actions/types';
 
 const initialState = {
-  isLoading: false,
+  user: false,
   error: ''
 };
 

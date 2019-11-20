@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+// import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -45,7 +46,9 @@ const SignIn = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    // eslint-disable-next-line no-alert
     alert(user.username);
+    // eslint-disable-next-line no-alert
     alert(user.password);
   };
 
@@ -135,7 +138,7 @@ export default SignIn;
 // const SignIn = () => {
 //   const classes = useStyles();
 //   const [state, setState] = useState({});
-//
+
 //   // const handleChange = e => {
 //   //   setLogin({
 //   //     [e.target.username]: e.target.value
@@ -205,7 +208,7 @@ export default SignIn;
 //       </div>
 //   );
 // }
-//
+
 // const FormikLoginForm = withFormik({
 //   mapPropsToValues({ username, password, tos }) {
 //     return {
@@ -241,5 +244,5 @@ export default SignIn;
 //   }
 // }
 // })(LoginForm);
-//
+
 // export default FormikLoginForm;
