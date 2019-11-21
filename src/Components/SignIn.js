@@ -116,7 +116,6 @@ const SignIn = () => {
           </div>
         </form>
       </Paper>
-
       <BottomNavBar />
     </div>
   );
