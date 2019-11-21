@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import BottomNavBar from "./bottomnavbar";
+import NavBar from "./navbar";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -52,6 +53,8 @@ const SignIn = () => {
 
   return (
     <div>
+      <NavBar/>
+
       <Paper className={classes.root}>
         <form
           onSubmit={event => handleSubmit(event)}
