@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
-import BottomNavBar from "./bottomnavbar";
-import NavBar from "./navbar";
+import BottomNavBar from './bottomnavbar';
+import NavBar from './navbar';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -53,7 +53,7 @@ const SignIn = () => {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
 
       <Paper className={classes.root}>
         <form
@@ -64,7 +64,7 @@ const SignIn = () => {
         >
           <div className={classes.centered}>
             <Typography variant="h1" gutterBottom>
-              auxilium
+              Sign in
             </Typography>
           </div>
           <div className={classes.centered}>
@@ -111,7 +111,7 @@ const SignIn = () => {
         </form>
       </Paper>
 
-      <BottomNavBar/>
+      <BottomNavBar />
     </div>
   );
 };

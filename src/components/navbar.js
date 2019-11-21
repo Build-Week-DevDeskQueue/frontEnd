@@ -11,11 +11,15 @@ const useStyles = makeStyles(theme => ({
   navRoot: {
     flexGrow: 1
   },
+  navColor: {
+    backgroundColor: 'white',
+    color: '#E4137B'
+  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   }
 }));
 
@@ -26,7 +30,7 @@ export default function NavBar() {
   return (
     <main>
       <div className={classes.navRoot}>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.navColor}>
           <Toolbar>
             <img src={logo} alt="" height="60" />
             <Typography variant="h6" className={classes.title}>

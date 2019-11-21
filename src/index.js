@@ -7,7 +7,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
-import loginReducer from './redux/reducers/loginReducer';
+// import loginReducer from './redux/reducers/loginReducer';
+import loginReducer from './Redux/reducers/loginReducer';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 

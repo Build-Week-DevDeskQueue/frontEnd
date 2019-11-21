@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './App.css';
-import NewIssueForm from './components/New';
-import SignIn from './components/SignIn';
-import AppRouter from './components/AppRouter';
+import NewIssueForm from './Components/new';
+import SignIn from './Components/SignIn';
+import AppRouter from './Components/AppRouter';
 
 const App = () => {
   return (
