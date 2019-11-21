@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import logo from '../images/logo.png';
 
 const useStyles = makeStyles(theme => ({
   navRoot: {
@@ -27,6 +28,7 @@ export default function NavBar() {
       <div className={classes.navRoot}>
         <AppBar position="static">
           <Toolbar>
+            <img src={logo} alt="" height="60" />
             <Typography variant="h6" className={classes.title}>
               <NavLink className="dashboard navBarLink" to="/">
                 Dashboard
