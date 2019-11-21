@@ -27,12 +27,13 @@ const App = props => {
   };
 
   //update 
-  const updateTicket = ticket => {
+  const updateTicket = (e, ticket) => {
+    e.preventDefault()
     axiosWithAuth()
       .put(`https://devdesk-backend.herokuapp.com/api/tickets/${ticket.id}`, ticket)
       .then(result => {
-        fetchTickets();
-        props.history.push("/");
+        //fetchTickets();
+        //props.history.push("/");
       })
       .catch(error => {
         console.log(error);
@@ -104,7 +105,8 @@ const App = props => {
       <br />
       <h1>Here is the Current Open Ticket List</h1>
       <br />
-      <h4>Add, Update, Save, or Delete from Your Database.</h4>
+      <h4>Add, Save, or Delete from Tickets from Your Database.
+        Admins may log in and Update Your Ticket once Received.</h4>
       <Route
         exact path="/"
         render={props => {
@@ -128,9 +130,6 @@ const App = props => {
           );
         }}
       />
-      <div className="add-ticket">
-        <Link to="/update-ticket/:id">Update Ticket</Link>
-      </div>
       <Route
         path="/update-ticket/:id"
         render={props => {

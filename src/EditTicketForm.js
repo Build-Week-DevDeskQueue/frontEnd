@@ -1,8 +1,8 @@
-import React from "react";
-import { Formik, Form } from "formik";
+import React, { useState, useEffect } from "react";
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
+import { Link, withRouter } from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,94 +18,94 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function EditTicketForm({ listTickets, match, updateTicket }) {
-  const ticketToUpdate = listTickets.find(item => {
-    return item.id === Number(match.params.id);
-  });
+  const [data, setData] = useState({ listTickets })
+
+  console.log('ticketformdata', data)
+  useEffect(() => {
+    const ticketToUpdate = listTickets.find(item => {
+      return item.id === Number(match.params.id);
+    });
+    console.log('ticketToUpdate', ticketToUpdate)
+    setData(ticketToUpdate)
+  }, []);
+
+  const handleChange = event => {
+    setData(
+      {
+        ...data,
+        [event.target.name]: event.target.value
+      }
+    );
+  };
+
+  const handleSubmit = () => {
+    this.props.history.push('/');
+  }
+
   const classes = useStyles();
+
   return (
-
-    <Formik
-      initialValues={ticketToUpdate}
-      onSubmit={updateTicket}
-      render={props => {
-        console.log('props', props)
-        return (
-          <>
-            <form className={classes.container} noValidate autoComplete="off">
-              <TextField
-                required
-                id="filled-required"
-                label="Title"
-                name="title"
-                className={classes.textField}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                required
-                id="filled-required"
-                label="Description"
-                defaultValue=""
-                className={classes.textField}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                required
-                id="filled-required"
-                label="Type"
-                defaultValue=""
-                className={classes.textField}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                required
-                id="filled-required"
-                label="Tried"
-                defaultValue="Trying to?"
-                className={classes.textField}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                id="filled-number"
-                label="Owner"
-                type="number"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                required
-                id="filled-required"
-                label="Assigned"
-                defaultValue=""
-                className={classes.textField}
-                margin="normal"
-                variant="filled"
-              />
-              <TextField
-                id="date"
-                label="Submitted Date"
-                type="date"
-                defaultValue=""
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <Button variant="contained" type="submit" color="primary" className={classes.button}>
-                Update Ticket
-             </Button>
-            </form>
-          </>
-
-        );
-      }}
-    />
+    <>
+      <form className={classes.container} noValidate autoComplete="off" onSubmit={(e) => { updateTicket(e, data) }}>
+        <TextField
+          required
+          id="filled-required"
+          label="Description"
+          name="description"
+          value={data.description}
+          className={classes.textField}
+          margin="normal"
+          variant="filled"
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          id="filled-required"
+          label="Type"
+          name="type"
+          value={data.type}
+          className={classes.textField}
+          margin="normal"
+          variant="filled"
+          onChange={handleChange}
+        />
+        <TextField
+          id="filled-number"
+          label="Owner"
+          type="number"
+          name="owner"
+          value={data.owner}
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          margin="normal"
+          variant="filled"
+          onChange={handleChange}
+        />
+        <TextField
+          id="date"
+          label="Submitted Date"
+          type="date"
+          name="date"
+          value={data.date}
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          onChange={handleChange}
+        />
+        <Button variant="contained"
+          type="submit"
+          color="primary"
+          onSubmit={handleSubmit}
+          className={classes.button}>
+          Submit Ticket
+        </Button>
+      </form>
+      <div className="back">
+        <Link to="/">Back to Tickets</Link>
+      </div>
+    </>
   );
 }

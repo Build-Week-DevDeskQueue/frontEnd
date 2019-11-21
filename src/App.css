@@ -68,14 +68,17 @@ button {
 }
 
 .ticket-card {
-  background: #444;
+  display: flex;
+  flex-flow: column wrap;
+  background: #222;
   border-radius: 4px;
   border: 2px solid #aaa;
-  color: white;
-  width: 400px;
-  height: 400px;
+  color: whitesmoke;
+  height: 160px;
   text-align: center;
   justify-content: center;
+  opacity: 0.8;
+  margin: 20px 145px 20px 145px;
 }
 
 .delete-btn {
@@ -84,4 +87,9 @@ button {
   border-radius: 8px;
   background: darkred;
   color: white;
+  margin: 20px;
+}
+
+.ticket-list {
+
 }

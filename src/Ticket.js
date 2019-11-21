@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { TicketCard } from './TicketCard';
+import MUICard from './components/MUICard';
 import { axiosWithAuth } from './utils/axiosWithAuth';
 import Button from '@material-ui/core/Button';
 
@@ -43,7 +43,7 @@ export default class Ticket extends React.Component {
 
     return (
       <div className="card-wrapper">
-        <TicketCard ticket={this.state.ticket} />
+        <MUICard ticket={this.state.ticket} />
 
         <Button class="update-btn" onClick={this.updateTicket}>
           Update
